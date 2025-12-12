@@ -1,0 +1,49 @@
+<script>
+let logs = JSON.parse(localStorage.getItem("logs") || "[]");
+
+function addLog(type, status) {
+    const entry = {
+        time: new Date().toLocaleString(),
+        user: document.getElementById("displayName").innerText,
+        call: type,
+        status
+    };
+    logs.push(entry);
+    localStorage.setItem("logs", JSON.stringify(logs));
+    renderLogs();
+}
+
+function renderLogs(filter = "all") {
+    const logsDiv = document.getElementById("logs");
+    logsDiv.innerHTML = "";
+
+    logs
+        .filter(l => filter === "all" || l.status === filter)
+        .forEach(l => {
+            logsDiv.innerHTML += `
+                <div class="log">
+                    <b>${l.call}</b> — ${l.status}<br>
+                    <small>${l.time}</small> | <small>${l.user}</small>
+                </div>`;
+        });
+}
+
+function executeCall(type) {
+    addLog(type, "success");
+    document.getElementById("result").innerText =
+        ${type} executed successfully (simulated);
+}
+
+document.addEventListener("DOMContentLoaded", renderLogs);
+</script>
+
+<div id="logs" class="panel"></div>
+
+<style>
+.log {
+    border-left: 4px solid #3498db;
+    padding: 8px;
+    margin-bottom: 8px;
+    background: rgba(255,255,255,0.1);
+}
+</style>
