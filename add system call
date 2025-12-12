@@ -1,0 +1,27 @@
+<div class="panel">
+    <h3>System Calls</h3>
+    <div class="system-calls">
+        <div class="call-card" data-call="file">📁 File Access</div>
+        <div class="call-card" data-call="network">🌐 Network</div>
+        <div class="call-card" data-call="process">🔧 Process</div>
+        <div class="call-card" data-call="info">💻 System Info</div>
+        <div class="call-card" data-call="users">👥 User Management</div>
+        <div class="call-card" data-call="security">🛡️ Security</div>
+    </div>
+</div>
+
+<style>
+.system-calls {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+    gap: 10px;
+}
+.call-card {
+    background: rgba(0,0,0,0.3);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.call-card:hover {
+    background: rgba(0,0,0,0.5);
+}
