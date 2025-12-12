@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure System Call Interface</title>
+    <style>
+        body {
+            background: #2c3e50;
+            font-family: Arial, sans-serif;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .app-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+        }
+        .panel {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Secure System Call Interface</h1>
+        </header>
+
+        <div class="app-container">
+            <div class="panel">Authentication</div>
+            <div class="panel">System Calls</div>
+            <div class="panel">Logs</div>
+        </div>
+    </div>
+</body>
+</html>
