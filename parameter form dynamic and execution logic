@@ -1,0 +1,33 @@
+<script>
+const callDefinitions = {
+    file: ["Operation", "Path"],
+    network: ["Target", "Port"],
+    process: ["Action", "PID"],
+    info: ["Type"],
+    users: ["Action", "Username"],
+    security: ["Level"]
+};
+
+document.querySelectorAll(".call-card").forEach(card => {
+    card.addEventListener("click", () => {
+        const type = card.dataset.call;
+        const params = callDefinitions[type];
+
+        let form = <h4>${type.toUpperCase()} Call</h4>;
+        params.forEach(p => {
+            form += <label>${p}</label><input type="text" class="param">;
+        });
+        form += <button onclick="executeCall('${type}')">Run</button>;
+
+        document.getElementById("callForm").innerHTML = form;
+    });
+});
+
+function executeCall(type) {
+    document.getElementById("result").innerText =
+        Executed ${type} with parameters. (Simulated);
+}
+</script>
+
+<div id="callForm" class="panel"></div>
+<div id="result" class="panel"></div>
